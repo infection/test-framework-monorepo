@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites>
-  <testsuite name="unit" tests="3" assertions="3" errors="0" failures="0" skipped="0" useless="0" time="0.002677">
-    <testcase name="testSubtraction" class="App\Tests\unit\Inner\InnerSourceClassTest" file="/Users/tfidry/Project/Humbug/codeception-adapter/tests/e2e/Codeception_Basic/tests/unit/Inner/InnerSourceClassTest.php" time="0.002259" assertions="1"/>
-    <testcase name="testSomeFeature" class="Codeception_Basic\Tests\unit\SourceClassTest" file="/Users/tfidry/Project/Humbug/codeception-adapter/tests/e2e/Codeception_Basic/tests/unit/SourceClassTest.php" time="0.000265" assertions="1"/>
-    <testcase name="test_it_can_add_small_numbers" class="Codeception_Basic\Tests\unit\SourceClassTest" file="/Users/tfidry/Project/Humbug/codeception-adapter/tests/e2e/Codeception_Basic/tests/unit/SourceClassTest.php" time="0.000152" assertions="1"/>
-  </testsuite>
-</testsuites>

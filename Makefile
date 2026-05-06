@@ -15,15 +15,15 @@ help:
 # Variables
 #---------------------------------------------------------------------------
 
-CODECEPTION_ADAPTER = codeception-adapter/tests/e2e/Codeception_Basic/composer.json
-CODECEPTION_COPY_HASH = Codeception/.codeception-adapter-copy.hash
-CODECEPTION_COPY_SOURCES = $(shell find codeception-adapter/tests/e2e/Codeception_Basic -type f 2>/dev/null)
-PHPSPEC_ADAPTER = phpspec-adapter/tests/e2e/PhpSpec/README.md
-PHPSPEC_COPY_HASH = PhpSpec/.phpspec-adapter-copy.hash
-PHPSPEC_COPY_SOURCES = $(shell find phpspec-adapter/tests/e2e/PhpSpec -type f 2>/dev/null)
-INFECTION = infection/README.md
-INFECTION_BIN = infection/bin/infection
-INFECTION_VENDOR = infection/vendor
+CODECEPTION_ADAPTER = sources/codeception-adapter/tests/e2e/Codeception_Basic/composer.json
+CODECEPTION_COPY_HASH = tests/Codeception/.codeception-adapter-copy.hash
+CODECEPTION_COPY_SOURCES = $(shell find sources/codeception-adapter/tests/e2e/Codeception_Basic -type f 2>/dev/null)
+PHPSPEC_ADAPTER = sources/phpspec-adapter/tests/e2e/PhpSpec/README.md
+PHPSPEC_COPY_HASH = tests/PhpSpec/.phpspec-adapter-copy.hash
+PHPSPEC_COPY_SOURCES = $(shell find sources/phpspec-adapter/tests/e2e/PhpSpec -type f 2>/dev/null)
+INFECTION = sources/infection/README.md
+INFECTION_BIN = sources/infection/bin/infection
+INFECTION_VENDOR = sources/infection/vendor
 
 
 #
@@ -35,12 +35,12 @@ test: 	## Test the adapters
 test: test-phpspec test-codeception
 
 .PHONY: test-phpspec
-test-phpspec: PhpSpec/vendor	## Test the PHPSpec Adapter
-	cd PhpSpec && vendor/bin/infection --test-framework=phpspec
+test-phpspec: tests/PhpSpec/vendor	## Test the PHPSpec Adapter
+	cd tests/PhpSpec && vendor/bin/infection --test-framework=phpspec
 
 .PHONY: test-codeception
-test-codeception: Codeception/vendor	## Test the Codeception Adapter
-	cd Codeception && vendor/bin/infection --test-framework=codeception
+test-codeception: tests/Codeception/vendor	## Test the Codeception Adapter
+	cd tests/Codeception && vendor/bin/infection --test-framework=codeception
 
 
 #
@@ -48,34 +48,34 @@ test-codeception: Codeception/vendor	## Test the Codeception Adapter
 #---------------------------------------------------------------------------
 
 $(INFECTION):
-	git submodule update --init infection
+	git submodule update --init sources/infection
 	touch -c $@
 
-$(INFECTION_BIN): infection/vendor
+$(INFECTION_BIN): sources/infection/vendor
 	touch -c $@
 
-infection/vendor:
-	composer install --working-dir=infection
+sources/infection/vendor:
+	composer install --working-dir=sources/infection
 	touch -c $@
 
 $(CODECEPTION_ADAPTER):
-	git submodule update --init codeception-adapter
+	git submodule update --init sources/codeception-adapter
 	touch -c $@
 
 $(PHPSPEC_ADAPTER):
-	git submodule update --init phpspec-adapter
+	git submodule update --init sources/phpspec-adapter
 	touch -c $@
 
-Codeception/vendor: $(CODECEPTION_COPY_HASH)
-	composer update --working-dir=Codeception --ignore-platform-req=ext-curl
+tests/Codeception/vendor: $(CODECEPTION_COPY_HASH)
+	composer update --working-dir=tests/Codeception --ignore-platform-req=ext-curl
 	touch -c $@
 
 $(CODECEPTION_COPY_HASH): $(CODECEPTION_ADAPTER) $(CODECEPTION_COPY_SOURCES)
 	./scripts/sync-codeception-copy.sh
 	touch -c $@
 
-PhpSpec/vendor: $(PHPSPEC_COPY_HASH)
-	composer update --working-dir=PhpSpec
+tests/PhpSpec/vendor: $(PHPSPEC_COPY_HASH)
+	composer update --working-dir=tests/PhpSpec
 	touch -c $@
 
 $(PHPSPEC_COPY_HASH): $(PHPSPEC_ADAPTER) $(PHPSPEC_COPY_SOURCES)

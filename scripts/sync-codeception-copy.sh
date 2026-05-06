@@ -3,8 +3,8 @@
 set -euo pipefail
 
 readonly ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-readonly SOURCE_DIR="${ROOT_DIR}/codeception-adapter/tests/e2e/Codeception_Basic"
-readonly TARGET_DIR="${ROOT_DIR}/Codeception"
+readonly SOURCE_DIR="${ROOT_DIR}/sources/codeception-adapter/tests/e2e/Codeception_Basic"
+readonly TARGET_DIR="${ROOT_DIR}/tests/Codeception"
 readonly HASH_FILE="${TARGET_DIR}/.codeception-adapter-copy.hash"
 
 EXCLUDES=(
@@ -32,9 +32,12 @@ configure_composer_json() {
 
         composer config --unset repositories.codeception-adapter || true
         composer config --unset repositories.infection || true
-        composer config repositories.codeception-adapter '{"type":"path","url":"../codeception-adapter","options":{"symlink":true,"versions":{"infection/codeception-adapter":"0.4.99"}}}'
-        composer config repositories.infection '{"type":"path","url":"../infection","options":{"symlink":true,"versions":{"infection/infection":"0.32.99"}}}'
+        composer config repositories.codeception-adapter '{"type":"path","url":"../../sources/codeception-adapter","options":{"symlink":true,"versions":{"infection/codeception-adapter":"0.4.99"}}}'
+        composer config repositories.infection '{"type":"path","url":"../../sources/infection","options":{"symlink":true,"versions":{"infection/infection":"0.32.99"}}}'
+        composer config license proprietary
         composer config --json 'allow-plugins.infection/extension-installer' true
+        composer require --dev --no-update --no-interaction 'infection/codeception-adapter:^0.4.99'
+        composer require --dev --no-update --no-interaction 'infection/infection:^0.32.6'
     )
 }
 

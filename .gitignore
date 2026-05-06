@@ -1,5 +1,5 @@
-/Codeception/
-/PhpSpec/
+/tests/Codeception/
+/tests/PhpSpec/
 /var/*
 !/var/.gitkeep
 /direnv/
