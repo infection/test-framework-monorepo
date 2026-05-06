@@ -16,10 +16,10 @@ help:
 #---------------------------------------------------------------------------
 
 CODECEPTION_ADAPTER = sources/codeception-adapter/tests/e2e/Codeception_Basic/composer.json
-CODECEPTION_COPY_HASH = tests/Codeception/.codeception-adapter-copy.hash
+CODECEPTION_COPY_HASH = tests/Codeception/source.hash
 CODECEPTION_COPY_SOURCES = $(shell find sources/codeception-adapter/tests/e2e/Codeception_Basic -type f 2>/dev/null)
 PHPSPEC_ADAPTER = sources/phpspec-adapter/tests/e2e/PhpSpec/README.md
-PHPSPEC_COPY_HASH = tests/PhpSpec/.phpspec-adapter-copy.hash
+PHPSPEC_COPY_HASH = tests/PhpSpec/source.hash
 PHPSPEC_COPY_SOURCES = $(shell find sources/phpspec-adapter/tests/e2e/PhpSpec -type f 2>/dev/null)
 INFECTION = sources/infection/README.md
 INFECTION_BIN = sources/infection/bin/infection

@@ -5,7 +5,7 @@ set -euo pipefail
 readonly ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 readonly SOURCE_DIR="${ROOT_DIR}/sources/codeception-adapter/tests/e2e/Codeception_Basic"
 readonly TARGET_DIR="${ROOT_DIR}/tests/Codeception"
-readonly HASH_FILE="${TARGET_DIR}/.codeception-adapter-copy.hash"
+readonly HASH_FILE="${TARGET_DIR}/source.hash"
 
 EXCLUDES=(
     "composer.lock"
