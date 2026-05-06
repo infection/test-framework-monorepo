@@ -1,0 +1,6 @@
+/Codeception/
+/PhpSpec/
+/var/*
+!/var/.gitkeep
+/direnv/
+/.envrc.local

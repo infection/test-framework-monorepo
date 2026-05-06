@@ -16,7 +16,7 @@ final class GeneratedExtensionsConfig
     array (
       'class' => 'Infection\\TestFramework\\Codeception\\CodeceptionAdapterFactory',
     ),
-    'version' => 'dev-master fa9b990',
+    'version' => '0.4.99',
   ),
 );
 

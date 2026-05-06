@@ -743,18 +743,12 @@
         },
         {
             "name": "infection/codeception-adapter",
-            "version": "dev-master",
-            "version_normalized": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/infection/codeception-adapter.git",
-                "reference": "fa9b9907abe0e5ad75843cd54e3d7664e9cec338"
-            },
+            "version": "0.4.99",
+            "version_normalized": "0.4.99.0",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/infection/codeception-adapter/zipball/fa9b9907abe0e5ad75843cd54e3d7664e9cec338",
-                "reference": "fa9b9907abe0e5ad75843cd54e3d7664e9cec338",
-                "shasum": ""
+                "type": "path",
+                "url": "../codeception-adapter",
+                "reference": "11f354a9fdfba764a3eefe7ac0d8f90fedbf23f6"
             },
             "require": {
                 "infection/abstract-testframework-adapter": "^0.5.0",
@@ -778,8 +772,6 @@
                 "phpunit/phpunit": "^9.5",
                 "thecodingmachine/safe": "^1.3"
             },
-            "time": "2026-04-21T09:26:36+00:00",
-            "default-branch": true,
             "type": "infection-extension",
             "extra": {
                 "infection": {
@@ -792,7 +784,14 @@
                     "Infection\\TestFramework\\Codeception\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Infection\\Tests\\TestFramework\\Codeception\\": "tests/phpunit"
+                },
+                "files": [
+                    "tests/phpunit/Helpers.php"
+                ]
+            },
             "license": [
                 "BSD-3-Clause"
             ],
@@ -803,20 +802,10 @@
                 }
             ],
             "description": "Codeception Test Framework Adapter for Infection",
-            "support": {
-                "issues": "https://github.com/infection/codeception-adapter/issues",
-                "source": "https://github.com/infection/codeception-adapter/tree/master"
+            "transport-options": {
+                "symlink": true,
+                "relative": true
             },
-            "funding": [
-                {
-                    "url": "https://github.com/infection",
-                    "type": "github"
-                },
-                {
-                    "url": "https://opencollective.com/infection",
-                    "type": "open_collective"
-                }
-            ],
             "install-path": "../infection/codeception-adapter"
         },
         {
@@ -953,8 +942,8 @@
             "version_normalized": "0.32.99.0",
             "dist": {
                 "type": "path",
-                "url": "../../infection",
-                "reference": "56a549222f0362b24e987fd4cd17e7b151f72d15"
+                "url": "../infection",
+                "reference": "a8009cd87d57dc02260598fcdf27c964aecb5df3"
             },
             "require": {
                 "colinodell/json5": "^3.0",
@@ -996,6 +985,7 @@
                 "ext-simplexml": "*",
                 "fidry/makefile": "^1.0",
                 "fig/log-test": "^1.2",
+                "phpat/phpat": "^0.12.4",
                 "phpbench/phpbench": "^1.4",
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan": "^2.1",
@@ -1077,6 +1067,7 @@
                 "issues": "https://github.com/infection/infection/issues"
             },
             "transport-options": {
+                "symlink": true,
                 "relative": true
             },
             "install-path": "../infection/infection"
@@ -1139,17 +1130,17 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "6.8.0",
-            "version_normalized": "6.8.0.0",
+            "version": "6.8.2",
+            "version_normalized": "6.8.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jsonrainbow/json-schema.git",
-                "reference": "89ac92bcfe5d0a8a4433c7b89d394553ae7250cc"
+                "reference": "2c89ebb95ca9cedc9347f780333f7b25792dcb76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/89ac92bcfe5d0a8a4433c7b89d394553ae7250cc",
-                "reference": "89ac92bcfe5d0a8a4433c7b89d394553ae7250cc",
+                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/2c89ebb95ca9cedc9347f780333f7b25792dcb76",
+                "reference": "2c89ebb95ca9cedc9347f780333f7b25792dcb76",
                 "shasum": ""
             },
             "require": {
@@ -1159,13 +1150,13 @@
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "3.3.0",
-                "json-schema/json-schema-test-suite": "^23.2",
+                "json-schema/json-schema-test-suite": "dev-main",
                 "marc-mabe/php-enum-phpstan": "^2.0",
                 "phpspec/prophecy": "^1.19",
                 "phpstan/phpstan": "^1.12",
                 "phpunit/phpunit": "^8.5"
             },
-            "time": "2026-04-02T12:43:11+00:00",
+            "time": "2026-05-05T05:39:01+00:00",
             "bin": [
                 "bin/validate-json"
             ],
@@ -1211,7 +1202,7 @@
             ],
             "support": {
                 "issues": "https://github.com/jsonrainbow/json-schema/issues",
-                "source": "https://github.com/jsonrainbow/json-schema/tree/6.8.0"
+                "source": "https://github.com/jsonrainbow/json-schema/tree/6.8.2"
             },
             "install-path": "../justinrainbow/json-schema"
         },
@@ -3755,17 +3746,17 @@
         },
         {
             "name": "symfony/console",
-            "version": "v8.0.8",
-            "version_normalized": "8.0.8.0",
+            "version": "v8.0.9",
+            "version_normalized": "8.0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "5b66d385dc58f69652e56f78a4184615e3f2b7f7"
+                "reference": "7113778e2e91f4709cb3194a75dfa9c0d028d94d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/5b66d385dc58f69652e56f78a4184615e3f2b7f7",
-                "reference": "5b66d385dc58f69652e56f78a4184615e3f2b7f7",
+                "url": "https://api.github.com/repos/symfony/console/zipball/7113778e2e91f4709cb3194a75dfa9c0d028d94d",
+                "reference": "7113778e2e91f4709cb3194a75dfa9c0d028d94d",
                 "shasum": ""
             },
             "require": {
@@ -3790,7 +3781,7 @@
                 "symfony/stopwatch": "^7.4|^8.0",
                 "symfony/var-dumper": "^7.4|^8.0"
             },
-            "time": "2026-03-30T15:14:47+00:00",
+            "time": "2026-04-29T15:02:55+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3824,7 +3815,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v8.0.8"
+                "source": "https://github.com/symfony/console/tree/v8.0.9"
             },
             "funding": [
                 {
@@ -3848,23 +3839,23 @@
         },
         {
             "name": "symfony/css-selector",
-            "version": "v8.0.8",
-            "version_normalized": "8.0.8.0",
+            "version": "v8.0.9",
+            "version_normalized": "8.0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
-                "reference": "8db1c00226a94d8ab6aa89d9224eeee91e2ea2ed"
+                "reference": "3665cfade90565430909b906394c73c8739e57d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/css-selector/zipball/8db1c00226a94d8ab6aa89d9224eeee91e2ea2ed",
-                "reference": "8db1c00226a94d8ab6aa89d9224eeee91e2ea2ed",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/3665cfade90565430909b906394c73c8739e57d0",
+                "reference": "3665cfade90565430909b906394c73c8739e57d0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.4"
             },
-            "time": "2026-03-30T15:14:47+00:00",
+            "time": "2026-04-18T13:51:42+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -3896,7 +3887,7 @@
             "description": "Converts CSS selectors to XPath expressions",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/css-selector/tree/v8.0.8"
+                "source": "https://github.com/symfony/css-selector/tree/v8.0.9"
             },
             "funding": [
                 {
@@ -3990,17 +3981,17 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v8.0.8",
-            "version_normalized": "8.0.8.0",
+            "version": "v8.0.9",
+            "version_normalized": "8.0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "f662acc6ab22a3d6d716dcb44c381c6002940df6"
+                "reference": "0c3c1a17604c4dbbec4b93fe162c538482096e1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/f662acc6ab22a3d6d716dcb44c381c6002940df6",
-                "reference": "f662acc6ab22a3d6d716dcb44c381c6002940df6",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/0c3c1a17604c4dbbec4b93fe162c538482096e1f",
+                "reference": "0c3c1a17604c4dbbec4b93fe162c538482096e1f",
                 "shasum": ""
             },
             "require": {
@@ -4026,7 +4017,7 @@
                 "symfony/service-contracts": "^2.5|^3",
                 "symfony/stopwatch": "^7.4|^8.0"
             },
-            "time": "2026-03-30T15:14:47+00:00",
+            "time": "2026-04-18T13:51:42+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -4054,7 +4045,7 @@
             "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher/tree/v8.0.8"
+                "source": "https://github.com/symfony/event-dispatcher/tree/v8.0.9"
             },
             "funding": [
                 {
@@ -4157,17 +4148,17 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v8.0.8",
-            "version_normalized": "8.0.8.0",
+            "version": "v8.0.9",
+            "version_normalized": "8.0.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "66b769ae743ce2d13e435528fbef4af03d623e5a"
+                "reference": "d1ec4543d5c6c2dac78503c2fae5ea0b3608ce40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/66b769ae743ce2d13e435528fbef4af03d623e5a",
-                "reference": "66b769ae743ce2d13e435528fbef4af03d623e5a",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/d1ec4543d5c6c2dac78503c2fae5ea0b3608ce40",
+                "reference": "d1ec4543d5c6c2dac78503c2fae5ea0b3608ce40",
                 "shasum": ""
             },
             "require": {
@@ -4178,7 +4169,7 @@
             "require-dev": {
                 "symfony/process": "^7.4|^8.0"
             },
-            "time": "2026-03-30T15:14:47+00:00",
+            "time": "2026-04-18T13:51:42+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -4206,7 +4197,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v8.0.8"
+                "source": "https://github.com/symfony/filesystem/tree/v8.0.9"
             },
             "funding": [
                 {
@@ -4301,8 +4292,8 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.36.0",
-            "version_normalized": "1.36.0.0",
+            "version": "v1.37.0",
+            "version_normalized": "1.37.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -4363,7 +4354,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -4387,17 +4378,17 @@
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
-            "version": "v1.36.0",
-            "version_normalized": "1.36.0.0",
+            "version": "v1.37.0",
+            "version_normalized": "1.37.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
-                "reference": "ad1b7b9092976d6c948b8a187cec9faaea9ec1df"
+                "reference": "4864388bfbd3001ce88e234fab652acd91fdc57e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/ad1b7b9092976d6c948b8a187cec9faaea9ec1df",
-                "reference": "ad1b7b9092976d6c948b8a187cec9faaea9ec1df",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/4864388bfbd3001ce88e234fab652acd91fdc57e",
+                "reference": "4864388bfbd3001ce88e234fab652acd91fdc57e",
                 "shasum": ""
             },
             "require": {
@@ -4406,7 +4397,7 @@
             "suggest": {
                 "ext-intl": "For best performance"
             },
-            "time": "2026-04-10T16:19:22+00:00",
+            "time": "2026-04-26T13:13:48+00:00",
             "type": "library",
             "extra": {
                 "thanks": {
@@ -4448,7 +4439,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -4472,8 +4463,8 @@
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.36.0",
-            "version_normalized": "1.36.0.0",
+            "version": "v1.37.0",
+            "version_normalized": "1.37.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
@@ -4536,7 +4527,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -4560,8 +4551,8 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.36.0",
-            "version_normalized": "1.36.0.0",
+            "version": "v1.37.0",
+            "version_normalized": "1.37.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
@@ -4624,7 +4615,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -4648,23 +4639,23 @@
         },
         {
             "name": "symfony/polyfill-php85",
-            "version": "v1.36.0",
-            "version_normalized": "1.36.0.0",
+            "version": "v1.37.0",
+            "version_normalized": "1.37.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php85.git",
-                "reference": "2c408a6bb0313e6001a83628dc5506100474254e"
+                "reference": "fcfa4973a9917cef23f2e38774da74a2b7d115ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/2c408a6bb0313e6001a83628dc5506100474254e",
-                "reference": "2c408a6bb0313e6001a83628dc5506100474254e",
+                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/fcfa4973a9917cef23f2e38774da74a2b7d115ee",
+                "reference": "fcfa4973a9917cef23f2e38774da74a2b7d115ee",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2"
             },
-            "time": "2026-04-10T16:50:15+00:00",
+            "time": "2026-04-26T13:10:57+00:00",
             "type": "library",
             "extra": {
                 "thanks": {
@@ -4707,7 +4698,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php85/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-php85/tree/v1.37.0"
             },
             "funding": [
                 {
