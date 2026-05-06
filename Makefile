@@ -77,7 +77,7 @@ $(ABSTRACT_TESTFRAMEWORK_ADAPTER):
 	touch -c $@
 
 tests/Codeception/vendor: $(CODECEPTION_COPY_HASH) | $(EXTENSION_INSTALLER) $(ABSTRACT_TESTFRAMEWORK_ADAPTER)
-	composer update --working-dir=tests/Codeception --ignore-platform-req=ext-curl
+	composer update --working-dir=tests/Codeception
 	touch -c $@
 
 $(CODECEPTION_COPY_HASH): $(CODECEPTION_ADAPTER) $(CODECEPTION_COPY_SOURCES)

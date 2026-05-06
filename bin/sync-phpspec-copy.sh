@@ -50,6 +50,8 @@ sync_copy() {
     local exclude
     local expected_hash
 
+    mkdir -p "${TARGET_DIR}"
+
     for exclude in "${EXCLUDES[@]}"; do
         exclude_args+=("--exclude=${exclude}")
     done
