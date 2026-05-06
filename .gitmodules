@@ -1,0 +1,9 @@
+[submodule "phpspec-adapter"]
+	path = phpspec-adapter
+	url = git@github.com:infection/phpspec-adapter.git
+[submodule "codeception-adapter"]
+	path = codeception-adapter
+	url = git@github.com:infection/codeception-adapter.git
+[submodule "infection"]
+	path = infection
+	url = git@github.com:infection/infection.git

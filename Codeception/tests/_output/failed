@@ -1,0 +1,2 @@
+tests/unit/Covered/CalculatorTest.php:testAddition
+tests/unit/Covered/CalculatorTest.php:testSubtraction
