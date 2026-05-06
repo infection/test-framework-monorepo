@@ -32,8 +32,12 @@ configure_composer_json() {
 
         composer config --unset repositories.phpspec-adapter || true
         composer config --unset repositories.infection || true
+        composer config --unset repositories.extension-installer || true
+        composer config --unset repositories.abstract-testframework-adapter || true
         composer config repositories.phpspec-adapter '{"type":"path","url":"../../sources/phpspec-adapter","options":{"versions":{"infection/phpspec-adapter":"0.3.99"}}}'
         composer config repositories.infection '{"type":"path","url":"../../sources/infection","options":{"symlink":true,"versions":{"infection/infection":"0.32.99"}}}'
+        composer config repositories.extension-installer '{"type":"path","url":"../../sources/extension-installer","options":{"symlink":true,"versions":{"infection/extension-installer":"0.1.99"}}}'
+        composer config repositories.abstract-testframework-adapter '{"type":"path","url":"../../sources/abstract-testframework-adapter","options":{"symlink":true,"versions":{"infection/abstract-testframework-adapter":"0.5.99"}}}'
         composer config --json 'allow-plugins.infection/extension-installer' true
         composer require --dev --no-update --no-interaction infection/phpspec-adapter || true
         composer require --dev --no-update --no-interaction 'infection/infection:^0.32.6'

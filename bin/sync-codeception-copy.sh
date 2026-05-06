@@ -32,8 +32,12 @@ configure_composer_json() {
 
         composer config --unset repositories.codeception-adapter || true
         composer config --unset repositories.infection || true
+        composer config --unset repositories.extension-installer || true
+        composer config --unset repositories.abstract-testframework-adapter || true
         composer config repositories.codeception-adapter '{"type":"path","url":"../../sources/codeception-adapter","options":{"symlink":true,"versions":{"infection/codeception-adapter":"0.4.99"}}}'
         composer config repositories.infection '{"type":"path","url":"../../sources/infection","options":{"symlink":true,"versions":{"infection/infection":"0.32.99"}}}'
+        composer config repositories.extension-installer '{"type":"path","url":"../../sources/extension-installer","options":{"symlink":true,"versions":{"infection/extension-installer":"0.1.99"}}}'
+        composer config repositories.abstract-testframework-adapter '{"type":"path","url":"../../sources/abstract-testframework-adapter","options":{"symlink":true,"versions":{"infection/abstract-testframework-adapter":"0.5.99"}}}'
         composer config license proprietary
         composer config --json 'allow-plugins.infection/extension-installer' true
         composer require --dev --no-update --no-interaction 'infection/codeception-adapter:^0.4.99'

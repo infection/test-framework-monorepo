@@ -24,6 +24,8 @@ PHPSPEC_COPY_SOURCES = $(shell find sources/phpspec-adapter/tests/e2e/PhpSpec -t
 INFECTION = sources/infection/README.md
 INFECTION_BIN = sources/infection/bin/infection
 INFECTION_VENDOR = sources/infection/vendor
+EXTENSION_INSTALLER = sources/extension-installer/composer.json
+ABSTRACT_TESTFRAMEWORK_ADAPTER = sources/abstract-testframework-adapter/composer.json
 
 
 #
@@ -66,7 +68,15 @@ $(PHPSPEC_ADAPTER):
 	git submodule update --init sources/phpspec-adapter
 	touch -c $@
 
-tests/Codeception/vendor: $(CODECEPTION_COPY_HASH)
+$(EXTENSION_INSTALLER):
+	git submodule update --init sources/extension-installer
+	touch -c $@
+
+$(ABSTRACT_TESTFRAMEWORK_ADAPTER):
+	git submodule update --init sources/abstract-testframework-adapter
+	touch -c $@
+
+tests/Codeception/vendor: $(CODECEPTION_COPY_HASH) | $(EXTENSION_INSTALLER) $(ABSTRACT_TESTFRAMEWORK_ADAPTER)
 	composer update --working-dir=tests/Codeception --ignore-platform-req=ext-curl
 	touch -c $@
 
@@ -74,7 +84,7 @@ $(CODECEPTION_COPY_HASH): $(CODECEPTION_ADAPTER) $(CODECEPTION_COPY_SOURCES)
 	./bin/sync-codeception-copy.sh
 	touch -c $@
 
-tests/PhpSpec/vendor: $(PHPSPEC_COPY_HASH)
+tests/PhpSpec/vendor: $(PHPSPEC_COPY_HASH) | $(EXTENSION_INSTALLER) $(ABSTRACT_TESTFRAMEWORK_ADAPTER)
 	composer update --working-dir=tests/PhpSpec
 	touch -c $@
 

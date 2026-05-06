@@ -7,3 +7,9 @@
 [submodule "infection"]
 	path = sources/infection
 	url = git@github.com:infection/infection.git
+[submodule "sources/extension-installer"]
+	path = sources/extension-installer
+	url = git@github.com:infection/extension-installer.git
+[submodule "sources/abstract-testframework-adapter"]
+	path = sources/abstract-testframework-adapter
+	url = git@github.com:infection/abstract-testframework-adapter.git
