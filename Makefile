@@ -71,7 +71,7 @@ tests/Codeception/vendor: $(CODECEPTION_COPY_HASH)
 	touch -c $@
 
 $(CODECEPTION_COPY_HASH): $(CODECEPTION_ADAPTER) $(CODECEPTION_COPY_SOURCES)
-	./scripts/sync-codeception-copy.sh
+	./bin/sync-codeception-copy.sh
 	touch -c $@
 
 tests/PhpSpec/vendor: $(PHPSPEC_COPY_HASH)
@@ -79,5 +79,5 @@ tests/PhpSpec/vendor: $(PHPSPEC_COPY_HASH)
 	touch -c $@
 
 $(PHPSPEC_COPY_HASH): $(PHPSPEC_ADAPTER) $(PHPSPEC_COPY_SOURCES)
-	./scripts/sync-phpspec-copy.sh
+	./bin/sync-phpspec-copy.sh
 	touch -c $@
